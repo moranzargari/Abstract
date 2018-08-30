@@ -1,5 +1,4 @@
 *{
-    width: 100%;
     direction: rtl;
 }
 
@@ -7,9 +6,7 @@
   
 }
 
-.img-circle{
-    width: 150%;
-    height: 150%;
-    
-
+.img-thumbnail{
+    width: 304px;
+    height: 236px;
 }
