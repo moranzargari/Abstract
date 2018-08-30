@@ -16,5 +16,7 @@ export class BarComponent implements OnInit {
   public contactUs(){
      this.router.navigate(['contactUs']);
   }
-  
+  public info(){
+    this.router.navigate(['info']);
+ }
 }
