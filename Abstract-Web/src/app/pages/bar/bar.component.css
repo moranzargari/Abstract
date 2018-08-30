@@ -4,12 +4,9 @@ body {
 
 h1{
     font-family:montserrat;
-    font-size: 50px;
+    font-size: 30px;
 }
 
-.logo{
-    padding-left: 1px;
-}
 
 .navbar {
     border-radius: 0;
