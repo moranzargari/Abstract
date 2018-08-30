@@ -1,0 +1,15 @@
+*{
+    width: 100%;
+    direction: rtl;
+}
+
+.container-fluid well span6{
+  
+}
+
+.img-circle{
+    width: 150%;
+    height: 150%;
+    
+
+}
