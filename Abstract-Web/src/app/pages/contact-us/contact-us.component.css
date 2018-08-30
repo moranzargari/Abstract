@@ -2,18 +2,3 @@
     width: 100%;
     direction: rtl;
 }
-.jumbotron {
-    background: rgb(214, 69, 69);
-    color: #FFF;
-    border-radius: 0px;
-    }
-    .jumbotron-sm {
-         padding-top: 24px;
-    padding-bottom: 24px; }
-    .jumbotron small {
-    color: #FFF;
-    }
-    .h2 small {
-
-    font-size: 15px;
-    }
