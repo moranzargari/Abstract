@@ -7,6 +7,10 @@ h1{
     font-size: 50px;
 }
 
+.logo{
+    padding-left: 1px;
+}
+
 .navbar {
     border-radius: 0;
     font-family: Aharoni;
