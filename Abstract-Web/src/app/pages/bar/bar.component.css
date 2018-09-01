@@ -7,7 +7,9 @@ h1{
     font-size: 30px;
 }
 
-
+.logo{
+    margin-left: 15%;
+}
 .navbar {
     border-radius: 0;
     font-family: Aharoni;
@@ -83,4 +85,8 @@ h1{
 
 .badge-danger {
     background-color: #e74c3c;
+}
+
+.navbar-right{
+    padding-right: 1%;
 }
