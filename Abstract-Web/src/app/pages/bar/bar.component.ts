@@ -19,4 +19,8 @@ export class BarComponent implements OnInit {
   public info(){
     this.router.navigate(['info']);
  }
+ public works(){
+  this.router.navigate(['works']);
+}
+ 
 }
