@@ -7,6 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { BarComponent } from './pages/bar/bar.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { InfoComponent } from './pages/info/info.component';
+import { UploadWorkComponent } from './pages/upload-work/upload-work.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { InfoComponent } from './pages/info/info.component';
     HomeComponent,
     BarComponent,
     ContactUsComponent,
-    InfoComponent
+    InfoComponent,
+    UploadWorkComponent
   ],
   imports: [
     BrowserModule,

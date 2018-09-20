@@ -22,5 +22,7 @@ export class BarComponent implements OnInit {
  public works(){
   this.router.navigate(['works']);
 }
- 
+public upload(){
+  this.router.navigate(['upload']);
+}
 }
