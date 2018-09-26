@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RoutingService } from './services/routing.service';
-
+import { FormsModule, FormGroup,FormBuilder ,Validators,ReactiveFormsModule  } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BarComponent } from './pages/bar/bar.component';
@@ -20,7 +20,9 @@ import { UploadWorkComponent } from './pages/upload-work/upload-work.component';
   ],
   imports: [
     BrowserModule,
-    RoutingService
+    RoutingService,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
