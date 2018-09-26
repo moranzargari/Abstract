@@ -33,6 +33,9 @@ import { environment } from '../environments/environment';
     AngularFireStorageModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
+    FormsModule,
+    AngularFirestoreModule, 
+    ReactiveFormsModule
   ],
   providers: [
     DatabaseService,
