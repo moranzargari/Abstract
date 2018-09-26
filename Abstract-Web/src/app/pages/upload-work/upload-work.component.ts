@@ -14,12 +14,53 @@ import { FileUpload } from '../../file-upload';
 export class UploadWorkComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
+  progress: { percentage: number } = { percentage: 0 };
+  fields;
+  file_work_selected = false;
   work: Work;
   workform: FormGroup; // tracks the value and validity state of a group of FormControl
 
-  constructor() { }
+  constructor(public uploadService: UploadFileService, public db: DatabaseService)
+   { }
 
   ngOnInit() {
+    this.work = new Work();
+
+  }
+
+  public addWork(){
+
+  }
+
+    //Holds the selected file from the form
+    selectFile(event) {
+      this.selectedFiles = event.target.files;
+      if (this.work.title == undefined || this.work.title == '') {
+        this.cancelSelectFile();
+        alert("חובה להזין שם")
+        return;
+      }
+      if (this.selectedFiles.item(0).size > 5242880) {
+        this.cancelSelectFile();
+        alert("גודל הקובץ חייב להיות עד 5 מגה בייט")
+        return;
+      }
+      this.file_work_selected = true;
+    }
+    cancelSelectFile() {
+      this.selectedFiles = null;
+      this.file_work_selected = false;
+    }
+  
+      //Uploads the selected file to firebase storage
+  upload() {
+    this.uploadService.basePath = this.work.title;
+    const file = this.selectedFiles.item(0);
+    this.selectedFiles = undefined;
+    this.currentFileUpload = new FileUpload(file);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
+      this.file_work_selected = false;
+    });
   }
 
 }

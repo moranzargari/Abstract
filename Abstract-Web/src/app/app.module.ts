@@ -8,6 +8,13 @@ import { BarComponent } from './pages/bar/bar.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { InfoComponent } from './pages/info/info.component';
 import { UploadWorkComponent } from './pages/upload-work/upload-work.component';
+import {DatabaseService} from './services/database.service';
+import {UploadFileService} from './services/upload-file.service';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -22,9 +29,15 @@ import { UploadWorkComponent } from './pages/upload-work/upload-work.component';
     BrowserModule,
     RoutingService,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    DatabaseService,
+    UploadFileService
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

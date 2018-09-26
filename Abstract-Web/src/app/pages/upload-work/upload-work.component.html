@@ -1,16 +1,42 @@
 <div class = "alo">
-<form>
-    <div class="form-group">
-      <label for="exampleFormControlInput1">שם העבודה</label>
-      <input  class="form-control" id="exampleFormControlInput1">
+  <form>
+    <div [formGroup]="workform">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">שם העבודה</label>
+        <input  class="form-control" id="exampleFormControlInput1" [(ngModel)]="work.title">
+      </div>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlTextarea1">תיאור</label>
-      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">תיאור</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="work.content"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlFile1">העלאת תמונה ראשית</label>
+        <div class="input-group image-preview">
+          <div class="btn btn-default image-preview-input">
+              <input type="file" (change)="selectFile($event)" required name="fileupload" />
+              <span class="glyphicon glyphicon-folder-open"></span>
+              <span class="image-preview-input-title">בחר קובץ</span>
+          </div>
+          <div class="file">{{this.selectedFiles.item(0).name}}</div>
+          <div>
+              <button type="button" class="btn btn-labeled btn-primary" (click)="upload()">
+                  <span class="btn-label">
+                      <i class="glyphicon glyphicon-upload"></i>
+                  </span>העלה קובץ</button>
+              <button type="button" class="btn btn-labeled btn-primary" (click)="cancelSelectFile()">
+                  <span class="btn-label">
+                  </span>בטל בחירה</button>
+          </div>
+          <div *ngIf="currentFileUpload" class="progress">
+              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%" attr.aria-valuenow="{{progress.percentage}}"
+                  aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                  {{progress.percentage}}%</div>
+          </div>
+      </div>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary btn-default" id="save" (click)="addWork()">add work</button>
     </div>
-    <div class="form-group">
-      <label for="exampleFormControlFile1">העלאת תמונה ראשית</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1">
-    </div>
-  </form>
-</div>
+    </form>
+  </div>
