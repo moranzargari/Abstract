@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firesto
 import * as firebase from 'firebase/app';
 import {Work} from '../work'
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -37,26 +38,29 @@ export class DatabaseService {
     // }
 
     
-  getProjectMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
-    this.observableWorks = this.workCollections.snapshotChanges().map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as User;
-        const id = a.payload.doc.id;
-        return { id, ...data };
+    getWorkMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
+      this.workCollections = Array.prototype.slice.call(this.workCollections);
+      this.observableWorks = this.workCollections.snapshotchanges().map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Work;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
       });
-    });
-    return this.observableWorks;
-  }
-
-    // returns the id listing of project by a given project name
-    public getWorkID(pname: string) { //get project ID by Project name
-      for (var i = 0; i < this.worksList.length; i++) {
-        if (this.worksList[i].title == pname) {
-          return this.worksList[i].id;
-        }
-      }
-      return 'not found';
+      return this.observableWorks;
     }
+  
+  
+
+  //   // returns the id listing of project by a given project name
+  //   public getWorkID(pname: string) { //get project ID by Project name
+  //     for (var i = 0; i < this.worksList.length; i++) {
+  //       if (this.worksList[i].title == pname) {
+  //         return this.worksList[i].id;
+  //       }
+  //     }
+  //     return 'not found';
+  //   }
 
 }
 

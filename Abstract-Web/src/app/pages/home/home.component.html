@@ -7,16 +7,12 @@
 
 <div class="container">
 	<div class="row">
-        <div class="content">
+        <div class="content" *ngFor="let work of this.db.worksList; let i = index">
                   <div class="content-overlay"></div>
-                  <img class="img-responsive" src="assets/_DSC2381.JPG"/>
+                  <img class="img-responsive" src="i.images[0]" (click) = "viewWork()"/>
                   <div class="content-details fadeIn-bottom">
-                    <h3 class="content-title">This is a title</h3>
-                    <p class="content-text">This is a short description</p>
+                    <h3 class="content-title">i.title</h3>
                   </div>
         </div>
-        
   </div>
-  
-
 </div>

@@ -37,7 +37,9 @@ import { VieworkComponent } from './pages/viework/viework.component';
     AngularFireDatabaseModule,
     FormsModule,
     AngularFirestoreModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule.enablePersistence()
+
   ],
   providers: [
     DatabaseService,
