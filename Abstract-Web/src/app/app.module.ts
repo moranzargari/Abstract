@@ -9,6 +9,7 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { InfoComponent } from './pages/info/info.component';
 import { UploadWorkComponent } from './pages/upload-work/upload-work.component';
 import {DatabaseService} from './services/database.service';
+import {AuthService} from './services/auth.service';
 import {UploadFileService} from './services/upload-file.service';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireStorageModule } from 'angularfire2/storage';
@@ -17,6 +18,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { VieworkComponent } from './pages/viework/viework.component';
 import { MasteryComponent } from './pages/mastery/mastery.component';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { MasteryComponent } from './pages/mastery/mastery.component';
   ],
   providers: [
     DatabaseService,
-    UploadFileService
+    UploadFileService,
+    AuthService,
+    AngularFireAuth
   ],
   bootstrap: [AppComponent],
 })

@@ -6,6 +6,7 @@ import { ContactUsComponent } from '../pages/contact-us/contact-us.component';
 import {InfoComponent} from '../pages/info/info.component'
 import {UploadWorkComponent} from '../pages/upload-work/upload-work.component'
 import {VieworkComponent} from '../pages/viework/viework.component';
+import { MasteryComponent } from '../pages/mastery/mastery.component';
 
 //routing links to navigate through the web-app
 const appRouets: Routes = [
@@ -14,8 +15,8 @@ const appRouets: Routes = [
   { path: 'contactUs', component: ContactUsComponent},
   { path: 'info', component: InfoComponent},
   { path: 'viework', component: VieworkComponent},
-  { path: 'upload', component: UploadWorkComponent}
-
+  { path: 'upload', component: UploadWorkComponent},
+  {path: 'mastery', component: MasteryComponent}
 
 ]
 
