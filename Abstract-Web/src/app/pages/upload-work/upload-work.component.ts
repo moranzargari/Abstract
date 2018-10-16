@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DatabaseService} from 'src/app/services/database.service'
-import {UploadFileService} from 'src/app/services/upload-file.service'
-import {Work} from 'src/app/work'
+import {DatabaseService} from 'src/app/services/database.service';
+import {UploadFileService} from 'src/app/services/upload-file.service';
+import {Work} from 'src/app/work';
 import { RouterLink, Router } from '@angular/router';
 import { FormsModule, FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FileUpload } from '../../file-upload';

@@ -39,7 +39,9 @@ import { MasteryComponent } from './pages/mastery/mastery.component';
     AngularFireDatabaseModule,
     FormsModule,
     AngularFirestoreModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule.enablePersistence()
+
   ],
   providers: [
     DatabaseService,
