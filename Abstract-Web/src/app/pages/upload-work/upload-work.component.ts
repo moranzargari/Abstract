@@ -20,16 +20,18 @@ export class UploadWorkComponent implements OnInit {
   work: Work;
   workform: FormGroup; // tracks the value and validity state of a group of FormControl
 
-  constructor(public uploadService: UploadFileService, public db: DatabaseService)
+  constructor(public uploadService: UploadFileService, public db: DatabaseService, public router: Router)
    { }
 
   ngOnInit() {
     this.work = new Work();
-
   }
 
   public addWork(){
     this.db.addWorkToDB(this.work)
+    this.file_work_selected = false;
+    alert("הועלה בהצלחה")
+    this.router.navigate(['works']);
   }
 
     //Holds the selected file from the form
@@ -58,10 +60,11 @@ export class UploadWorkComponent implements OnInit {
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentFileUpload = new FileUpload(file);
+    this.file_work_selected = true;
+
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
       this.work.images.push(this.currentFileUpload)
-      this.file_work_selected = false;
-      this.addWork();
+      this.file_work_selected = true;
     });
   }
 

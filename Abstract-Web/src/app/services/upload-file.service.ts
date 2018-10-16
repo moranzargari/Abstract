@@ -38,7 +38,7 @@ export class UploadFileService {
   }
 
   private saveFileData(fileUpload: FileUpload) {
-    this.db.list(`${this.basePath}/`).push(fileUpload);
+    this.db.list(`${this.basePath}/`).push(JSON.parse( JSON.stringify(fileUpload ) )); 
   }
 //========================================//
   getFileUploads(numberItems): AngularFireList<FileUpload> {

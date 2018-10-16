@@ -16,6 +16,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { environment } from '../environments/environment';
 import { VieworkComponent } from './pages/viework/viework.component';
+import { MasteryComponent } from './pages/mastery/mastery.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { VieworkComponent } from './pages/viework/viework.component';
     ContactUsComponent,
     InfoComponent,
     UploadWorkComponent,
-    VieworkComponent
+    VieworkComponent,
+    MasteryComponent
   ],
   imports: [
     BrowserModule,
