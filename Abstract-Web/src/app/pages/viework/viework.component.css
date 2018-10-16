@@ -3,6 +3,23 @@
 .text-divider:before{ content: " "; display: block; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #f7f7f7;}
 
 .container{
-    width: 35%;
+    width: 30%;
    float: right;
+   right: 0;
+   position: fixed;
+}
+
+img{
+    width: 75%;
+    height: 75%;
+}
+
+.pics{
+    width: 60%;
+  
+}
+
+.pics img{
+    display: block;
+    float: right;
 }
