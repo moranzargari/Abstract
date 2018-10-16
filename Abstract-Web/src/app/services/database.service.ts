@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection} from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
 import {Work} from '../work'
 import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators';
+import 'firebase/database';
+import 'rxjs/add/operator/map';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ import { map } from 'rxjs/operators';
 export class DatabaseService {
 
    /* project*/
- public workCollections; // holds a connection the firebase WorksInfo table
+ public workCollections: AngularFirestoreCollection<Work>; // holds a connection the firebase WorksInfo table
  public work: Work; // Holds project info that were inserted in the form by the user
- listingWorkDoc: AngularFirestoreDocument<Work>; //holds FB listing for update operation
+ listingWorkDoc: AngularFirestoreDocument<any>; //holds FB listing for update operation
  observableWorks: Observable<Work[]>; //A temp variable that returns metadata. used by projectsList
  worksList = []; // holds a list with listing id's and projects info of the ProjectInfo table
 
@@ -39,8 +40,8 @@ export class DatabaseService {
 
     
     getWorkMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
-      this.workCollections = Array.prototype.slice.call(this.workCollections);
-      this.observableWorks = this.workCollections.snapshotchanges().map(actions => {
+      //this.workCollections = Array.prototype.slice.call(this.workCollections);
+      this.observableWorks = this.workCollections.snapshotChanges().map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Work;
           const id = a.payload.doc.id;
