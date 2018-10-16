@@ -29,7 +29,7 @@ export class UploadWorkComponent implements OnInit {
   }
 
   public addWork(){
-
+    this.db.addWorkToDB(this.work)
   }
 
     //Holds the selected file from the form
@@ -59,7 +59,9 @@ export class UploadWorkComponent implements OnInit {
     this.selectedFiles = undefined;
     this.currentFileUpload = new FileUpload(file);
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
+      this.work.images.push(this.currentFileUpload)
       this.file_work_selected = false;
+      this.addWork();
     });
   }
 
