@@ -28,6 +28,9 @@ export class UploadWorkComponent implements OnInit {
   }
 
   public addWork(){
+    
+
+    this.work.images.push(this.currentFileUpload); // assigned file in project field
     this.db.addWorkToDB(this.work)
     this.file_work_selected = false;
     alert("הועלה בהצלחה")
@@ -63,11 +66,9 @@ export class UploadWorkComponent implements OnInit {
     this.file_work_selected = true;
 
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
-      this.work.images.push(this.currentFileUpload)
-      this.file_work_selected = true;
+    this.file_work_selected = false;
     });
   }
-
 
 
 

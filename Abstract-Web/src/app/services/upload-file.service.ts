@@ -21,6 +21,7 @@ export class UploadFileService {
         // in progress , raise the progress bar
         const snap = snapshot as firebase.storage.UploadTaskSnapshot;
         progress.percentage = Math.round((snap.bytesTransferred / snap.totalBytes) * 100);
+        
       },
       (error) => {
         // fail
@@ -30,6 +31,10 @@ export class UploadFileService {
         // success, finished upload , now the save the file
         fileUpload.url = uploadTask.snapshot.downloadURL;
         fileUpload.name = fileUpload.file.name;
+        uploadTask.then((snapshot) => {
+          snapshot.ref.getDownloadURL().then((url) => {
+            fileUpload.url =url          });
+      });
         this.saveFileData(fileUpload);
         resolve();
       }
@@ -38,7 +43,8 @@ export class UploadFileService {
   }
 
   private saveFileData(fileUpload: FileUpload) {
-    this.db.list(`${this.basePath}/`).push(JSON.parse( JSON.stringify(fileUpload ) )); 
+    this.db.list(`${this.basePath}/`).push(    JSON.parse( JSON.stringify(fileUpload ) )
+    );
   }
 //========================================//
   getFileUploads(numberItems): AngularFireList<FileUpload> {

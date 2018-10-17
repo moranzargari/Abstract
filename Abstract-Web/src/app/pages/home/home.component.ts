@@ -19,7 +19,8 @@ export class HomeComponent implements OnInit {
 
     this.db.getWorkMetaData().subscribe((val) => {
       this.db.worksList = val;
-      console.log( this.db.worksList[0].images[0]);
+      // for (var i=0; i<this.db.worksList.length;i++)
+      // console.log( this.db.worksList[i].images);
     })
 }
 
