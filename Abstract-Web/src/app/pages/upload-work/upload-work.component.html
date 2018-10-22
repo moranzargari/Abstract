@@ -1,42 +1,55 @@
-<div class = "alo">
-  <form>
-      <div class="form-group">
-        <div>
-        <label for="exampleFormControlInput1">שם העבודה</label>
-        <input [(ngModel)]="work.title" name="first">
-      </div>
-    </div>
-      <div class="form-group">
-        <label for="exampleFormControlTextarea1">תיאור</label>
-        <textarea id="exampleFormControlTextarea1" rows="3" [(ngModel)]="work.content" name="ss"></textarea>
-      </div>
-      <div class="form-group">
-        <label for="exampleFormControlFile1">העלאת תמונה ראשית</label>
-        <div class="input-group image-preview">
-          <div class="btn btn-default image-preview-input">
-              <input type="file" (change)="selectFile($event)" name="fileupload" />
-              <span class="glyphicon glyphicon-folder-open"></span>
-              <span class="image-preview-input-title">בחר קובץ</span>
-          </div>
-          <div class="file" *ngIf="this.selectedFiles != null" >{{this.selectedFiles.item(0).name}}</div>
-          <div>
-              <button type="button" class="btn btn-labeled btn-primary"  (click)="upload()">
-                  <span class="btn-label">
-                      <i class="glyphicon glyphicon-upload"></i>
-                  </span>העלה קובץ</button>
-              <button type="button" class="btn btn-labeled btn-primary" [hidden]="this.selectedFiles == null" (click)="cancelSelectFile()">
-                  <span class="btn-label">
-                  </span>בטל בחירה</button>
-          </div>
-          <div *ngIf="currentFileUpload" class="progress">
-              <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%" attr.aria-valuenow="{{progress.percentage}}"
-                  aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
-                  {{progress.percentage}}%</div>
-          </div>
-      </div>
-      </div>
-      <div class="row">
-        <button class="btn btn-primary btn-default" id="save" (click)="addWork()">add work</button>
-    </div>
-    </form>
-  </div>
+<div class="container">
+    <table class="table table-striped">
+       <tbody>
+          <tr>
+             <td colspan="1">
+                <form class="well form-horizontal">
+                   <fieldset>
+                      <div class="form-group">
+                         <label class="col-md-4 control-label">שם העבודה</label>
+                         <div class="col-md-8 inputGroupContainer">
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input [(ngModel)]="work.title" name="first" class="form-control" required="true" value="" type="text"></div>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                         <label class="col-md-4 control-label">תיאור</label>
+                         <div class="col-md-8 inputGroupContainer">
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><textarea [(ngModel)]="work.content" id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></textarea></div>
+                         </div>
+                      </div>
+                      <div class="form-group">
+                         <label class="col-md-4 control-label">העלאת תמונה ראשית</label>
+                         <div class="col-md-8 inputGroupContainer">
+                            <div class="input-group image-preview">
+                                <div class="btn btn-default image-preview-input">
+                                    <input type="file" (change)="selectFile($event)" name="fileupload" />
+                                    <span class="glyphicon glyphicon-folder-open"></span>
+                                    <span class="image-preview-input-title">בחר קובץ</span>
+                                </div>
+                                <div class="form-group" *ngIf="this.selectedFiles != null" >{{this.selectedFiles.item(0).name}}</div>
+                                <div>
+                                    <button type="button" class="btn btn-labeled btn-primary"  (click)="upload()">
+                                        <span class="btn-label">
+                                            <i class="glyphicon glyphicon-upload"></i>
+                                        </span>העלה קובץ</button>
+                                    <button type="button" class="btn btn-labeled btn-primary" [hidden]="this.selectedFiles == null || this.selectedFiles == false" (click)="cancelSelectFile()">
+                                        <span class="btn-label">
+                                        </span>בטל בחירה</button>
+                                </div>
+                                <div class="form-group" *ngIf="currentFileUpload" class="progress">
+                                    <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%" attr.aria-valuenow="{{progress.percentage}}"
+                                        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
+                                        {{progress.percentage}}%</div>
+                                </div>
+                            </div>
+                            <button class="btn btn-labeled btn-primary" [disabled]="this.file_work_selected==false" id="save" (click)="addWork()">add work</button>
+                      
+                         </div>
+                      </div>
+                   </fieldset>
+                </form>
+             </td>
+          </tr>
+       </tbody>
+    </table>
+ </div>
