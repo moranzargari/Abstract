@@ -6,32 +6,14 @@
 <div class="container">
     <br>
 	<div class="well">
-		<h2 class="text-divider"><span>Point</span></h2>
+		<h2 class="text-divider"><span>{{currentWork.title}}</span></h2>
         <p>
-            add "text-divider" class and SPAN around your text to create a pseudo
-            heading divider.
-            the style colors I used are setup for .well so you might want to 
-            setup different color rules.
-            add "text-divider" class and SPAN around your text to create a pseudo
-            heading divider.
-            the style colors I used are setup for .well so you might want to 
-            setup different color rules.
-            add "text-divider" class and SPAN around your text to create a pseudo
-            heading divider.
-            the style colors I used are setup for .well so you might want to 
-            setup different color rules.
-            add "text-divider" class and SPAN around your text to create a pseudo
-            heading divider.
-            the style colors I used are setup for .well so you might want to 
-            setup different color rules.
-            a
+            {{currentWork.content}}
         </p>
 	</div>
 </div>
 
-<div class= "pics">
-  <img src="https://r-ec.bstatic.com/images/hotel/max1024x768/957/95720220.jpg">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTymML2dUgnzl3J9FRMbWgt-AgGBz00kucq0zA-OJiHmTebOsBl">
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvsCnKBeeJOpfd3aGm-ePB4IkcnOnE9tEcAUx1nN6C705QO85S">
+<div class= "pics" *ngFor="let images of this.currentWork.images">
+  <img src='{{images.url}}'>
 </div>
 

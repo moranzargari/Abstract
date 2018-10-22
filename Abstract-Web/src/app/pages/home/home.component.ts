@@ -16,11 +16,8 @@ export class HomeComponent implements OnInit {
   { }
 
   ngOnInit() {
-
     this.db.getWorkMetaData().subscribe((val) => {
       this.db.worksList = val;
-      // for (var i=0; i<this.db.worksList.length;i++)
-      // console.log( this.db.worksList[i].images);
     })
 }
 
@@ -28,8 +25,7 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['upload']);
   }
 
-  public viewWork(){
-    console.log("dkjdkdjkdj");
-    this.router.navigate(['viework']);
+  public viewWork(index){
+    this.router.navigate(['viework'], { queryParams: { fromHome: index} });
   }
 }
