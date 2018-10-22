@@ -7,9 +7,9 @@
 
 <div class="container">
 	<div class="row">
-        <div class="content" *ngFor="let work of this.db.worksList; let i = index">
+        <div class="content" *ngFor="let work of this.db.worksList">
                   <div class="content-overlay"></div>
-                  <img class="img-responsive" src='{{work.images[0].url}}' (click) = "viewWork()"/>
+                  <img class="img-responsive" src='{{work.images[0].url}}' (click) = "this.viewWork()"/>
                   <div class="content-details fadeIn-bottom">
                     <h3 class="content-title">{{work.title}}</h3>
                   </div>
