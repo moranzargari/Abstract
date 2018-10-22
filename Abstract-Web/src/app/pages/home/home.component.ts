@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   public viewWork(){
+    console.log("dkjdkdjkdj");
     this.router.navigate(['viework']);
   }
 }

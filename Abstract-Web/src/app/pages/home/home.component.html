@@ -2,17 +2,17 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
-<button class="alo" (click)="upload()">העלאת עבודה חדשה</button>
-<button class="alo" >עריכת עבודה</button>
+<!-- <button class="alo" (click)="upload()">העלאת עבודה חדשה</button>
+<button class="alo" >עריכת עבודה</button> -->
 
 <div class="container">
 	<div class="row">
-        <div class="content" *ngFor="let work of this.db.worksList">
+        <div class="col-md-1 col-sm-3 col-xs-6 content" *ngFor="let work of this.db.worksList">
                   <div class="content-overlay"></div>
-                  <img class="img-responsive" src='{{work.images[0].url}}' (click) = "this.viewWork()"/>
+                  <a (click)="viewWork()"><img class="img-responsive" src='{{work.images[0].url}}'/></a>
                   <div class="content-details fadeIn-bottom">
                     <h3 class="content-title">{{work.title}}</h3>
                   </div>
         </div>
-  </div>
+  </div> 
 </div>
