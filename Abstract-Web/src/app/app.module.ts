@@ -19,12 +19,9 @@ import { environment } from '../environments/environment';
 import { VieworkComponent } from './pages/viework/viework.component';
 import { MasteryComponent } from './pages/mastery/mastery.component';
 import { AngularFireAuth } from 'angularfire2/auth';
-<<<<<<< HEAD
 import { MainMasterComponent } from './pages/main-master/main-master.component';
 import { MessagesComponent } from './pages/messages/messages.component';
-=======
 import { CookieService } from 'ngx-cookie-service';
->>>>>>> f220ecdb2481247f1fc8850aebf35d1794ed65c9
 
 @NgModule({
   declarations: [
