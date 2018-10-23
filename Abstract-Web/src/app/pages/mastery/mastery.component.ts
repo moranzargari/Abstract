@@ -33,7 +33,7 @@ export class MasteryComponent implements OnInit {
     this.signInVal = 'מתחבר...'
     this.auth.signIn(this.userForm.value['email'], this.userForm.value['password']) //using the auth service
       .then((res) => {
-            this.router.navigate(['upload'])
+            this.router.navigate(['mainMaster'])
       })
       .catch((err) => {
         this.signInVal = 'כניסה'

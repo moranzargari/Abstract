@@ -19,6 +19,8 @@ import { environment } from '../environments/environment';
 import { VieworkComponent } from './pages/viework/viework.component';
 import { MasteryComponent } from './pages/mastery/mastery.component';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { MainMasterComponent } from './pages/main-master/main-master.component';
+import { MessagesComponent } from './pages/messages/messages.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
     InfoComponent,
     UploadWorkComponent,
     VieworkComponent,
-    MasteryComponent
+    MasteryComponent,
+    MainMasterComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,
