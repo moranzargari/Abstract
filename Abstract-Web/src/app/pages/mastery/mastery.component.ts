@@ -58,9 +58,4 @@ export class MasteryComponent implements OnInit {
       ]],
     });
   }
-
-  public logOut() {
-    this.cookieService.set('UserType', 'undefined');
-    this.auth.LogOut();
-  }
 }
