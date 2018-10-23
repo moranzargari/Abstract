@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DatabaseService} from 'src/app/services/database.service';
 
 @Component({
   selector: 'app-messages',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessagesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public db: DatabaseService) { }
 
   ngOnInit() {
+    this.db.getMsgMetaData().subscribe((val) => {
+      this.db.MsgsList = val;
+    })
+
   }
 
 }

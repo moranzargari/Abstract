@@ -22,6 +22,8 @@ export class DatabaseService {
   /* Msg*/
   public MsgCollections: AngularFirestoreCollection<Work>;
   public msg: Msg;
+  observableMsgs: Observable<Msg[]>; //A temp variable that returns metadata. used by projectsList
+  MsgsList = []; // holds a list with listing id's and projects info of the ProjectInfo table
 
 
 
@@ -59,6 +61,18 @@ export class DatabaseService {
         });
       });
       return this.observableWorks;
+    }
+
+
+    getMsgMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
+      this.observableMsgs = this.MsgCollections.snapshotChanges().map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Msg;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        });
+      });
+      return this.observableMsgs;
     }
   
   
