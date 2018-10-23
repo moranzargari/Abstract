@@ -16,6 +16,8 @@ export class UploadWorkComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   fields;
+  counter=1;
+  arr= [1];
   file_work_selected = false;
   work: Work;
   workform: FormGroup; // tracks the value and validity state of a group of FormControl
@@ -28,10 +30,7 @@ export class UploadWorkComponent implements OnInit {
   }
 
   public addWork(){
-    
-
-    this.work.images.push(this.currentFileUpload); // assigned file in project field
-    this.db.addWorkToDB(this.work)
+        this.db.addWorkToDB(this.work)
     this.file_work_selected = false;
     alert("הועלה בהצלחה")
     this.router.navigate(['works']);
@@ -67,7 +66,13 @@ export class UploadWorkComponent implements OnInit {
 
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
     this.file_work_selected = false;
+    this.work.images.push(this.currentFileUpload); // assigned file in project field
     });
+  }
+
+  counterUp(){
+    this.counter++;
+    this.arr.push(1);
   }
 
 

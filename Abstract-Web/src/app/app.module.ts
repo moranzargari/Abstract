@@ -19,6 +19,7 @@ import { environment } from '../environments/environment';
 import { VieworkComponent } from './pages/viework/viework.component';
 import { MasteryComponent } from './pages/mastery/mastery.component';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
     DatabaseService,
     UploadFileService,
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    CookieService
   ],
   bootstrap: [AppComponent],
 })

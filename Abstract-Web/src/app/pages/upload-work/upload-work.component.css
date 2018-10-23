@@ -10,3 +10,11 @@
 button{
     margin: 1px;
 }
+
+.additional{
+    background-color: rgba(248, 103, 19, 0.877);
+}
+
+.addfinal{
+    background-color: darkgreen;
+}
