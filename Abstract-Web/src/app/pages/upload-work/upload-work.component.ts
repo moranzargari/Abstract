@@ -5,6 +5,7 @@ import {Work} from 'src/app/work';
 import { RouterLink, Router } from '@angular/router';
 import { FormsModule, FormGroup, FormControl, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 import { FileUpload } from '../../file-upload';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-upload-work',
@@ -16,22 +17,29 @@ export class UploadWorkComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   fields;
+  counter=1;
+  arr= [1];
+  type;
   file_work_selected = false;
+
   work: Work;
   workform: FormGroup; // tracks the value and validity state of a group of FormControl
 
-  constructor(public uploadService: UploadFileService, public db: DatabaseService, public router: Router)
+  constructor(public uploadService: UploadFileService, public db: DatabaseService, public router: Router, private cookieService: CookieService)
    { }
 
   ngOnInit() {
+    this.type = this.cookieService.get('UserType');
+    if (this.type !='mastery')
+    {
+      this.router.navigate(['works']);
+    }
+
     this.work = new Work();
   }
 
   public addWork(){
-    
-
-    this.work.images.push(this.currentFileUpload); // assigned file in project field
-    this.db.addWorkToDB(this.work)
+        this.db.addWorkToDB(this.work)
     this.file_work_selected = false;
     alert("הועלה בהצלחה")
     this.router.navigate(['works']);
@@ -67,7 +75,13 @@ export class UploadWorkComponent implements OnInit {
 
     this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
     this.file_work_selected = false;
+    this.work.images.push(this.currentFileUpload); // assigned file in project field
     });
+  }
+
+  counterUp(){
+    this.counter++;
+    this.arr.push(1);
   }
 
 

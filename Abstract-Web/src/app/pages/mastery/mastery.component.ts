@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service'
 import { FormsModule, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 
 type UserFields = 'email' | 'password';
@@ -21,7 +22,7 @@ export class MasteryComponent implements OnInit {
     'password': '',
   };
   signInVal = 'כניסה'
-  constructor(public auth: AuthService, public fb: FormBuilder, public router: Router) { }
+  constructor(public auth: AuthService, public fb: FormBuilder, public router: Router, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.buildForm();
@@ -33,7 +34,12 @@ export class MasteryComponent implements OnInit {
     this.signInVal = 'מתחבר...'
     this.auth.signIn(this.userForm.value['email'], this.userForm.value['password']) //using the auth service
       .then((res) => {
+<<<<<<< HEAD
             this.router.navigate(['mainMaster'])
+=======
+        this.cookieService.set('UserType', 'mastery');
+            this.router.navigate(['upload'])
+>>>>>>> f220ecdb2481247f1fc8850aebf35d1794ed65c9
       })
       .catch((err) => {
         this.signInVal = 'כניסה'
@@ -55,5 +61,10 @@ export class MasteryComponent implements OnInit {
         Validators.maxLength(25),
       ]],
     });
+  }
+
+  public logOut() {
+    this.cookieService.set('UserType', 'undefined');
+    this.auth.LogOut();
   }
 }

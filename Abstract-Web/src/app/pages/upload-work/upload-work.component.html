@@ -20,30 +20,33 @@
                       <div class="form-group">
                          <label class="col-md-4 control-label">העלאת תמונה ראשית</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group image-preview">
+                            <div *ngFor="let item of this.arr; let i = index" class="input-group image-preview">
+                                <div *ngIf="i<this.counter">
                                 <div class="btn btn-default image-preview-input">
                                     <input type="file" (change)="selectFile($event)" name="fileupload" />
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">בחר קובץ</span>
                                 </div>
-                                <div class="form-group" *ngIf="this.selectedFiles != null" >{{this.selectedFiles.item(0).name}}</div>
+                                <div class="form-group" *ngIf="this.selectedFiles != null && i==this.counter-1" >{{this.selectedFiles.item(0).name}}</div>
                                 <div>
-                                    <button type="button" class="btn btn-labeled btn-primary"  (click)="upload()">
+                                    <button *ngIf="i==this.counter-1" type="button" class="btn btn-labeled btn-primary"  (click)="upload()">
                                         <span class="btn-label">
                                             <i class="glyphicon glyphicon-upload"></i>
                                         </span>העלה קובץ</button>
-                                    <button type="button" class="btn btn-labeled btn-primary" [hidden]="this.selectedFiles == null || this.selectedFiles == false" (click)="cancelSelectFile()">
+                                    <button *ngIf="i==this.counter-1" type="button" class="btn btn-labeled btn-primary" [hidden]="this.selectedFiles !=true" (click)="cancelSelectFile()">
                                         <span class="btn-label">
                                         </span>בטל בחירה</button>
                                 </div>
-                                <div class="form-group" *ngIf="currentFileUpload" class="progress">
+                                <div class="form-group" *ngIf="currentFileUpload && i==this.counter-1" class="progress">
                                     <div class="progress-bar progress-bar-striped" role="progressbar" style="width: 15%" attr.aria-valuenow="{{progress.percentage}}"
                                         aria-valuemin="0" aria-valuemax="100" [ngStyle]="{width:progress.percentage+'%'}">
                                         {{progress.percentage}}%</div>
                                 </div>
+                                <button *ngIf="i==this.counter-1" class="btn btn-labeled btn-primary additional" id="save" (click)="counterUp()">העלה תמונה נוספת</button>
+
                             </div>
-                            <button class="btn btn-labeled btn-primary" [disabled]="this.file_work_selected!=false" id="save" (click)="addWork()">add work</button>
-                      
+                            </div>
+                            <button class="btn btn-labeled btn-primary addfinal" [disabled]="this.file_work_selected!=false" id="save" (click)="addWork()">add work</button>
                          </div>
                       </div>
                    </fieldset>
