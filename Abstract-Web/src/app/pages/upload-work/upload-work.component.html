@@ -8,13 +8,13 @@
                       <div class="form-group">
                          <label class="col-md-4 control-label">שם העבודה</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span><input [(ngModel)]="work.title" name="first" class="form-control" required="true" value="" type="text"></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="	glyphicon glyphicon-briefcase"></i></span><input [(ngModel)]="work.title" name="first" class="form-control" required="true" value="" type="text"></div>
                          </div>
                       </div>
                       <div class="form-group">
                          <label class="col-md-4 control-label">תיאור</label>
                          <div class="col-md-8 inputGroupContainer">
-                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span><textarea [(ngModel)]="work.content" id="addressLine1" name="addressLine1" placeholder="Address Line 1" class="form-control" required="true" value="" type="text"></textarea></div>
+                            <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span><textarea [(ngModel)]="work.content" id="addressLine1" name="addressLine1" class="form-control" required="true" value="" type="text"></textarea></div>
                          </div>
                       </div>
                       <div class="form-group">
@@ -42,7 +42,7 @@
                                         {{progress.percentage}}%</div>
                                 </div>
                             </div>
-                            <button class="btn btn-labeled btn-primary" [disabled]="this.file_work_selected==false" id="save" (click)="addWork()">add work</button>
+                            <button class="btn btn-labeled btn-primary" [disabled]="this.file_work_selected!=false" id="save" (click)="addWork()">add work</button>
                       
                          </div>
                       </div>
