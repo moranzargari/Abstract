@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from 'src/app/services/auth.service'
+
 @Component({
   selector: 'app-bar',
   templateUrl: './bar.component.html',
@@ -7,9 +10,11 @@ import { RouterLink, Router } from '@angular/router';
 })
 export class BarComponent implements OnInit {
 
-   constructor(public router: Router) { }
+   constructor(public auth: AuthService, public router: Router, private cookieService: CookieService) { }
 
+   type
   ngOnInit() {
+    this.type = this.cookieService.get('UserType');
   }
 
   
@@ -24,5 +29,11 @@ export class BarComponent implements OnInit {
 }
 public upload(){
   this.router.navigate(['upload']);
+}
+
+public logOut() {
+  this.cookieService.set('UserType', 'undefined');
+  this.auth.LogOut();
+  window.location.reload();
 }
 }
