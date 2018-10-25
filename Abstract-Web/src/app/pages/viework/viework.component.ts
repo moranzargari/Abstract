@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import {DatabaseService} from 'src/app/services/database.service';
 import {Work} from 'src/app/work';
-import { CookieService } from 'ngx-cookie-service';
 import * as $ from 'jquery';
 
 @Component({
@@ -17,14 +16,11 @@ export class VieworkComponent implements OnInit {
   str="";
   str1="";
 
-  constructor(public router: Router,private route: ActivatedRoute,public db: DatabaseService,private cookieService: CookieService) {
-    //this.cookieService.set('fromHome',  this.currentWorkIndex);
-  }
+  constructor(public router: Router,private route: ActivatedRoute,public db: DatabaseService) {}
 
   ngOnInit() {
-    //this.currentWorkIndex = this.cookieService.get('fromHome');
+
     this.db.getWorkMetaData().subscribe((val) => {
-      //this.currentWorkIndex = this.cookieService.get('fromHome');
       this.db.worksList = val;
       this.route.queryParams.subscribe(params => {
         this.currentWorkIndex = +params['fromHome'];
@@ -46,9 +42,6 @@ export class VieworkComponent implements OnInit {
       $(".container").html(this.str1);
       $(".pics").html(this.str);
     });
-
-
-    //console.log(  this.currentWork);
 
   }
 
