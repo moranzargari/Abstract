@@ -29,4 +29,7 @@ export class MainMasterComponent implements OnInit {
     this.router.navigate(['upload']);
   }
 
+  public edit(){
+    this.router.navigate(['edit']);
+  }
 }

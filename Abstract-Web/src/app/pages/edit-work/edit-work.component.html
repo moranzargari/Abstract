@@ -1,0 +1,25 @@
+<div class = "selectedit">
+<legend>בחר עבודה</legend>
+<select class="user-type" [(ngModel)]="selectedWork" (ngModelChange)="onChangeObj()" name="selectedWork">
+  <option *ngFor="let type of this.works" [value]="type">{{type}}</option>
+</select>
+</div>
+<div *ngIf="selectedWork!='מתוך רשימה'">
+    <form class="well form-horizontal">
+      <fieldset>
+          <legend>עריכת פרטים</legend>
+    <div class="form-group">
+      <label class="col-md-4 control-label">שם העבודה</label>
+      <div class="col-md-8 inputGroupContainer">
+        <div class="input-group"><span class="input-group-addon"><i class="	glyphicon glyphicon-briefcase"></i></span><input [(ngModel)]="work.title" name="first" class="form-control" required="true" value="" type="text"></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-4 control-label">תיאור</label>
+      <div class="col-md-8 inputGroupContainer">
+        <div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span><textarea [(ngModel)]="work.content" id="addressLine1" name="addressLine1" class="form-control" required="true" value="" type="text"></textarea></div>
+      </div>
+    </div>
+    </fieldset>
+  </form>
+</div>
