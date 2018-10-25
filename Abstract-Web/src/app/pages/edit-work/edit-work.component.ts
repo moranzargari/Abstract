@@ -3,6 +3,9 @@ import {DatabaseService} from 'src/app/services/database.service';
 import { Work } from '../../work';
 import {UploadFileService} from 'src/app/services/upload-file.service';
 import { FileUpload } from '../../file-upload';
+import { RouterLink, Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-edit-work',
   templateUrl: './edit-work.component.html',
@@ -23,12 +26,19 @@ export class EditWorkComponent implements OnInit {
   fields;
   type;
   file_work_selected = false;
+  counter=1;
+  arr= [1];
 
-
-  constructor(public db: DatabaseService) { }
+  constructor(public db: DatabaseService, public uploadService: UploadFileService, public router: Router, private cookieService: CookieService) { }
 
   
   ngOnInit() {
+    this.type = this.cookieService.get('UserType');
+    if (this.type !='mastery')
+    {
+      this.router.navigate(['works']);
+    }
+
     this.db.getWorkMetaData().subscribe((val) => {
       this.db.worksList = val;
       var j = 1;
@@ -91,6 +101,7 @@ export class EditWorkComponent implements OnInit {
     this.db.work = this.work;
     this.db.updateWorkListing(this.work.title);
     alert("המידע עודכן בהצלחה")
+    this.router.navigate(['works']);
   }
 
   deletimg(i){
@@ -101,5 +112,44 @@ export class EditWorkComponent implements OnInit {
   addmore(){
 
   }
+
+      //Holds the selected file from the form
+      selectFile(event) {
+        this.selectedFiles = event.target.files;
+        if (this.work.title == undefined || this.work.title == '') {
+          this.cancelSelectFile();
+          alert("חובה להזין שם")
+          return;
+        }
+        if (this.selectedFiles.item(0).size > 5242880) {
+          this.cancelSelectFile();
+          alert("גודל הקובץ חייב להיות עד 5 מגה בייט")
+          return;
+        }
+        this.file_work_selected = true;
+      }
+      cancelSelectFile() {
+        this.selectedFiles = null;
+        this.file_work_selected = false;
+      }
+    
+        //Uploads the selected file to firebase storage
+    upload() {
+      this.uploadService.basePath = this.work.title;
+      const file = this.selectedFiles.item(0);
+      this.selectedFiles = undefined;
+      this.currentFileUpload = new FileUpload(file);
+      this.file_work_selected = true;
+  
+      this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
+      this.file_work_selected = false;
+      this.work.images.push(this.currentFileUpload); // assigned file in project field
+      });
+    }
+  
+    counterUp(){
+      this.counter++;
+      this.arr.push(1);
+    }
 
 }
