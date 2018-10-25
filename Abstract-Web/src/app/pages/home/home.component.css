@@ -20,6 +20,7 @@ img {
   float: left;
   position: relative;
   overflow: hidden;
+  cursor: pointer; /* Pointer/hand icon */
 }
 .content:hover .content-overlay {
   opacity: 1;

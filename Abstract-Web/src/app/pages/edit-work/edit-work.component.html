@@ -38,10 +38,10 @@
           <br>
             <div class="btn-group" role="group" aria-label="Basic example">
                 <button *ngIf = "i>0"  (click)="swapic(i)" type="button" class="btn btn-secondary">הגדר כתמונה ראשית</button>
-                <button (click)="deletimg(i)" type="button" class="btn btn-secondary">מחק תמונה</button>
-                <button *ngIf = "i>0" (click)="swapup(i)" type="button" class="btn btn-secondary">הזז למעלה</button>
-                <button *ngIf = "i<this.work.images.length-1"(click)="swapdown(i)" type="button" class="btn btn-secondary">הזז למטה</button>
-              </div>
+                <button (click)="deletimg(i)" type="button" class="btn btn-secondary"  style="background-color: rgb(197, 94, 94)"><i class="fa fa-times"></i></button>
+                <button *ngIf = "i>0" (click)="swapup(i)" type="button" class="btn btn-secondary" style="background-color: rgb(238, 218, 103)"><i class="fa fa-arrow-up"></i></button>
+                <button *ngIf = "i<this.work.images.length-1"(click)="swapdown(i)" type="button" class="btn btn-secondary" style="background-color: rgb(238, 218, 103)"><i class="fa fa-arrow-down"></i></button>
+            </div>
               
           </div>
           <button class = "addmore" (click)="flagmoreimages()">העלה תמונות נוספות</button>
@@ -114,8 +114,9 @@
 
       </div>
       <h6>לצורך שמירת השינויים יש ללחוץ על הכפתור הירוק בתחתית דף זה</h6>
+      <button class="btn btn-labeled btn-primary addfinal" [disabled]="this.file_work_selected!=false" id="save" (click)="edit()">סיים ושמור שינויים</button>
     </fieldset>
   </form>
 
-  <button class="btn btn-labeled btn-primary addfinal" [disabled]="this.file_work_selected!=false" id="save" (click)="edit()">סיים ושמור שינויים</button>
+ 
 </div>
