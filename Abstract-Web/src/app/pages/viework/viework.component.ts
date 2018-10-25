@@ -33,7 +33,7 @@ export class VieworkComponent implements OnInit {
                 "<p>"+this.currentWork.content+"</p>";
         if(this.currentWork.pdf!=undefined){
           this.str1+="</div><div class='fa fa-file-pdf-o' style='font-size:19px;color:red;'>"+
-          "&nbsp;<a href='"+this.currentWork.pdf.url+"'>לחץ לצפייה בשאר התמונות</a></div>";
+          "&nbsp;<a href='"+this.currentWork.pdf.url+"'>לחץ לצפייה בעבודה המלאה</a></div>";
         }    
       var i;
       for(i=0;i< this.currentWork.images.length;i++){
