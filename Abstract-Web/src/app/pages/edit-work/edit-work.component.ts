@@ -158,4 +158,9 @@ export class EditWorkComponent implements OnInit {
       this.arr.push(1);
     }
 
+    deleteWork(){
+      if (window.confirm('האם אתה בטוח שברצונך למחוק עבודה זו לצמיתות?')){
+        this.db.deleteWorkListing(this.work.title)
+      }
+    }
 }

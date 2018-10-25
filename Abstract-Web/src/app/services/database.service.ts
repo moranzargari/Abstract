@@ -77,6 +77,15 @@ export class DatabaseService {
     }
   
   
+      //deletes work listing by a given title
+  deleteWorkListing(title: string) {
+    for (var i = 0; i < this.worksList.length; i++) {
+      if (this.worksList[i].title == title) {
+        this.listingDoc = this.workCollections.doc(`${this.worksList[i].id}`); //takes the listing that will be deleted by the doc.id (listing's id)
+        this.listingDoc.delete();
+      }
+    }
+  }
 
   //   // returns the id listing of project by a given project name
   //   public getWorkID(pname: string) { //get project ID by Project name
