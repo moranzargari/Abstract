@@ -18,3 +18,11 @@ button{
 .addfinal{
     background-color: darkgreen;
 }
+
+.buttons{
+    float: right;
+}
+
+.uniq{
+    background-color: rgb(238, 190, 175);
+}

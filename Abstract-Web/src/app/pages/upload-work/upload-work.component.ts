@@ -16,6 +16,7 @@ export class UploadWorkComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
+  progress2: { percentage: number } = { percentage: 0 };
   fields;
   counter=1;
   arr= [1];
@@ -66,17 +67,26 @@ export class UploadWorkComponent implements OnInit {
     }
   
       //Uploads the selected file to firebase storage
-  upload() {
+  upload(num) {
     this.uploadService.basePath = this.work.title;
     const file = this.selectedFiles.item(0);
     this.selectedFiles = undefined;
     this.currentFileUpload = new FileUpload(file);
     this.file_work_selected = true;
 
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
-    this.file_work_selected = false;
-    this.work.images.push(this.currentFileUpload); // assigned file in project field
-    });
+    if(num==0){
+      this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
+        this.file_work_selected = false;
+        this.work.images.push(this.currentFileUpload); // assigned file in project field
+        });
+    }
+    else{
+      this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress2).then(() => {
+        this.file_work_selected = false;
+        this.work.pdf = this.currentFileUpload;
+        });
+    }
+
   }
 
   counterUp(){
