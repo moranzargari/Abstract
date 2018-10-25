@@ -23,6 +23,7 @@ export class EditWorkComponent implements OnInit {
   selectedFiles: FileList;
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
+  progress2: { percentage: number } = { percentage: 0 };
   fields;
   type;
   file_work_selected = false;
@@ -101,7 +102,7 @@ export class EditWorkComponent implements OnInit {
     this.db.work = this.work;
     this.db.updateWorkListing(this.work.title);
     alert("המידע עודכן בהצלחה")
-    this.router.navigate(['works']);
+    this.router.navigate(['mainMaster']);
   }
 
   deletimg(i){
@@ -109,9 +110,6 @@ export class EditWorkComponent implements OnInit {
       this.work.images.splice(i, 1);
   }
 
-  addmore(){
-
-  }
 
       //Holds the selected file from the form
       selectFile(event) {
@@ -133,19 +131,27 @@ export class EditWorkComponent implements OnInit {
         this.file_work_selected = false;
       }
     
-        //Uploads the selected file to firebase storage
-    upload() {
-      this.uploadService.basePath = this.work.title;
-      const file = this.selectedFiles.item(0);
-      this.selectedFiles = undefined;
-      this.currentFileUpload = new FileUpload(file);
-      this.file_work_selected = true;
-  
-      this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
-      this.file_work_selected = false;
-      this.work.images.push(this.currentFileUpload); // assigned file in project field
-      });
-    }
+      upload(num) {
+        this.uploadService.basePath = this.work.title;
+        const file = this.selectedFiles.item(0);
+        this.selectedFiles = undefined;
+        this.currentFileUpload = new FileUpload(file);
+        this.file_work_selected = true;
+    
+        if(num==0){
+          this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
+            this.file_work_selected = false;
+            this.work.images.push(this.currentFileUpload); // assigned file in project field
+            });
+        }
+        else{
+          this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress2).then(() => {
+            this.file_work_selected = false;
+            this.work.pdf = this.currentFileUpload;
+            });
+        }
+    
+      }
   
     counterUp(){
       this.counter++;
