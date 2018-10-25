@@ -24,7 +24,7 @@ export class VieworkComponent implements OnInit {
     });
 
     this.currentWork=new Work(this.db.worksList[this.currentWorkIndex].title,this.db.worksList[this.currentWorkIndex].content,
-      this.db.worksList[this.currentWorkIndex].images);
+      this.db.worksList[this.currentWorkIndex].subtitle,this.db.worksList[this.currentWorkIndex].images);
 
   }
 
