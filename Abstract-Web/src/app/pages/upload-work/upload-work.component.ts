@@ -17,7 +17,7 @@ export class UploadWorkComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   progress2: { percentage: number } = { percentage: 0 };
-
+  txtupload = "העלאת תמונה ראשית";
   fields;
   counter=1;
   arr= [1];
@@ -92,6 +92,7 @@ export class UploadWorkComponent implements OnInit {
 
   counterUp(){
     this.counter++;
+    this.  txtupload = "העלאת תמונה נוספת";
     this.arr.push(1);
   }
 
