@@ -3,19 +3,9 @@
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
-<div class="container">
-    <br>
-	<div class="well">
-		<h2 class="text-divider"><span>{{currentWork.title}}</span></h2>
-        <p>
-            {{currentWork.content}}
-        </p>
-    </div>
+<div class="container"></div>
 
-    <div class="fa fa-file-pdf-o" style="font-size:19px;color:red;">&nbsp;<a href="{{currentWork.pdf.url}}">לחץ לצפייה בשאר התמונות</a></div>
-</div>
+    <div class= "pics"></div>
 
-<div class= "pics" *ngFor="let images of this.currentWork.images">
-  <img src='{{images.url}}'>
-</div>
+
 

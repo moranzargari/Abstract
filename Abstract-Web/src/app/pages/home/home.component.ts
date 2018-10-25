@@ -23,8 +23,6 @@ export class HomeComponent implements OnInit {
 }
 
   public viewWork(index){
-    this.cookieService.set('fromHome', index);
-  //  this.router.navigate(['viework'], { queryParams: { fromHome: index} });
-    this.router.navigate(['viework']);
+   this.router.navigate(['viework'], { queryParams: { fromHome: index} });
   }
 }

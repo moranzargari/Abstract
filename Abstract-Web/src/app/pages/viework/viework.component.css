@@ -1,33 +1,33 @@
 *{
     direction: rtl;
 }
-.text-divider{margin: 1em 0; line-height: 0; text-align: center;}
-.text-divider span{background-color: #f5f5f5; padding: 1em;}
-.text-divider:before{ content: " "; display: block; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #f7f7f7;}
+:host /deep/ .text-divider{margin: 1em 0; line-height: 0; text-align: center;}
+:host /deep/ .text-divider span{background-color: #f5f5f5; padding: 1em;}
+:host /deep/ .text-divider:before{ content: " "; display: block; border-top: 1px solid #e3e3e3; border-bottom: 1px solid #f7f7f7;}
 
-.container{
+:host /deep/ .container{
     width: 30%;
    float: right;
    right: 0;
    position: fixed;
 }
 
-img{
+:host /deep/ img{
     width: 75%;
     height: 75%;
     margin-bottom: 5%;
 }
 
-.pics{
+:host /deep/ .pics{
     width: 65%;
   
 }
 
-.pics img{
+:host /deep/ .pics img{
     display: block;
     float: right;
 }
 
-p{
+:host /deep/ p{
     text-align: center;
 }
