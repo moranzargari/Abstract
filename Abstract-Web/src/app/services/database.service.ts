@@ -18,6 +18,7 @@ export class DatabaseService {
  listingWorkDoc: AngularFirestoreDocument<any>; //holds FB listing for update operation
  observableWorks: Observable<Work[]>; //A temp variable that returns metadata. used by projectsList
  worksList = []; // holds a list with listing id's and projects info of the ProjectInfo table
+ listingDoc: AngularFirestoreDocument<Work>; //holds FB listing for update operation
 
   /* Msg*/
   public MsgCollections: AngularFirestoreCollection<Work>;
@@ -40,15 +41,15 @@ export class DatabaseService {
   public addMsgToDB(msg: Msg) {
     this.MsgCollections.add(JSON.parse(JSON.stringify(msg)));
   }
-    //Updates a project listing by a given email. the object that is passed to the update function has to be already with the wanted changes!!! (It writes a new object)
-    // updateWorkListing(work_name: string) {
-    //   for (var i = 0; i < this.worksList.length; i++) {
-    //     if (this.worksList[i].title == work_name) {
-    //       this.listingDoc = this.projectCollections.doc(`${this.projectsList[i].id}`); //takes the listing that will be updated by the doc.id (listing's id)
-    //       this.listingDoc.update(JSON.parse(JSON.stringify(this.work)));
-    //     }
-    //   }
-    // }
+    // Updates a work listing by a given email. the object that is passed to the update function has to be already with the wanted changes!!! (It writes a new object)
+    updateWorkListing(work_name: string) {
+      for (var i = 0; i < this.worksList.length; i++) {
+        if (this.worksList[i].title == work_name) {
+           this.listingDoc = this.workCollections.doc(`${this.worksList[i].id}`); //takes the listing that will be updated by the doc.id (listing's id)
+          this.listingDoc.update(JSON.parse(JSON.stringify(this.work)));
+        }
+      }
+    }
 
     
     getWorkMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
