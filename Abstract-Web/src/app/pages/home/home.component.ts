@@ -4,6 +4,7 @@ import {DatabaseService} from 'src/app/services/database.service';
 import {Work} from 'src/app/work';
 import { Observable } from 'rxjs/Observable';
 import * as firebase from 'firebase/app';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ import * as firebase from 'firebase/app';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public router: Router, public db: DatabaseService) 
+  constructor(public router: Router, public db: DatabaseService,private cookieService: CookieService) 
   { }
 
   ngOnInit() {
@@ -21,11 +22,9 @@ export class HomeComponent implements OnInit {
     })
 }
 
-  public upload(){
-    this.router.navigate(['upload']);
-  }
-
   public viewWork(index){
-    this.router.navigate(['viework'], { queryParams: { fromHome: index} });
+    this.cookieService.set('fromHome', index);
+  //  this.router.navigate(['viework'], { queryParams: { fromHome: index} });
+    this.router.navigate(['viework']);
   }
 }
