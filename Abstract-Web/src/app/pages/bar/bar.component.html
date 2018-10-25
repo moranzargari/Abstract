@@ -10,14 +10,8 @@
 
 
 
-<div>
-  <table>
-      <tr>
-          <!-- <td><img class="logo" src="assets/logo.jpg" width="150" height="143"></td> -->
-          <!-- <td><h1 >ABSTRACT | יובל חפץ</h1></td> -->
-          <td><img class="log" src="assets/logoa.jpg" width="881" height="155"></td>
-      </tr>
-  </table>  
+<div class="uplogo">
+        <img class="log" src="assets/logoa.jpg" width="881" height="155" >
 </div>
 
 <nav class="navbar navbar-inverse">
@@ -25,10 +19,10 @@
     
 <div id="sk-top-modules">
 <ul class="nav navbar-nav navbar-right">
-<li *ngIf="this.type=='mastery'"><a [routerLink]="" (click)="this.logOut()"><i class="fa fa-sign-out" aria-hidden="true"></i> התנתק</a></li>
-<li><a  [routerLink]="" (click)="contactUs()"><i class="fa fa-comments" aria-hidden="true"></i> צור קשר</a></li>
-<li><a [routerLink]="" (click)="info()"><i class="fa fa-info-circle" aria-hidden="true"></i> אודות</a></li>
-<li><a [routerLink]="" (click)="works()"><i class="fa fa-briefcase" aria-hidden="true"></i> עבודות</a></li>
+<li *ngIf="this.type=='mastery'"><a [routerLink]="" (click)="this.logOut()"><i aria-hidden="true"></i> התנתק</a></li>
+<li><a  [routerLink]="" (click)="contactUs()"><i aria-hidden="true"></i> צור קשר</a></li>
+<li><a [routerLink]="" (click)="info()"><i aria-hidden="true"></i> אודות</a></li>
+<li><a [routerLink]="" (click)="works()"><i aria-hidden="true"></i> עבודות</a></li>
 </ul>
 </div>
 

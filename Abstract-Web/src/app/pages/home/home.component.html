@@ -4,11 +4,12 @@
 
 <div class="container">
 	<div class="row">
-        <div class="col-md-1 col-sm-3 col-xs-6 content" *ngFor="let work of this.db.worksList; let i = index">
+        <div class="content" *ngFor="let work of this.db.worksList; let i = index">
                   <div class="content-overlay"></div>
                   <a (click)="viewWork(i)"><img class="img-responsive" src='{{work.images[0].url}}'/></a>
                   <div class="content-details fadeIn-bottom">
                     <h3 class="content-title">{{work.title}}</h3>
+                    <p *ngIf="work.subtitle!=undefined">{{work.subtitle}}</p>
                   </div>
         </div>
   </div> 
