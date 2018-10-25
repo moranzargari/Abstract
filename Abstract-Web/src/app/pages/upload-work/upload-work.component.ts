@@ -17,6 +17,7 @@ export class UploadWorkComponent implements OnInit {
   currentFileUpload: FileUpload;
   progress: { percentage: number } = { percentage: 0 };
   progress2: { percentage: number } = { percentage: 0 };
+
   fields;
   counter=1;
   arr= [1];
@@ -43,7 +44,7 @@ export class UploadWorkComponent implements OnInit {
         this.db.addWorkToDB(this.work)
     this.file_work_selected = false;
     alert("הועלה בהצלחה")
-    this.router.navigate(['works']);
+    this.router.navigate(['mainMaster']);
   }
 
     //Holds the selected file from the form
