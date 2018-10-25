@@ -9,6 +9,7 @@ import {VieworkComponent} from '../pages/viework/viework.component';
 import { MasteryComponent } from '../pages/mastery/mastery.component';
 import {MainMasterComponent} from '../pages/main-master/main-master.component';
 import {MessagesComponent} from '../pages/messages/messages.component';
+import {EditWorkComponent} from '../pages/edit-work/edit-work.component';
 
 //routing links to navigate through the web-app
 const appRouets: Routes = [
@@ -20,8 +21,10 @@ const appRouets: Routes = [
   { path: 'upload', component: UploadWorkComponent},
   { path: 'mainMaster', component: MainMasterComponent},
   { path: 'messages', component: MessagesComponent},
-  {path: 'mastery', component: MasteryComponent}
+  {path: 'mastery', component: MasteryComponent},
+  {path: 'edit', component: EditWorkComponent}
 
+  
 ]
 
 @NgModule({

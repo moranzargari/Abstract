@@ -22,6 +22,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { MainMasterComponent } from './pages/main-master/main-master.component';
 import { MessagesComponent } from './pages/messages/messages.component';
 import { CookieService } from 'ngx-cookie-service';
+import { EditWorkComponent } from './pages/edit-work/edit-work.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { CookieService } from 'ngx-cookie-service';
     VieworkComponent,
     MasteryComponent,
     MainMasterComponent,
-    MessagesComponent
+    MessagesComponent,
+    EditWorkComponent
   ],
   imports: [
     BrowserModule,
