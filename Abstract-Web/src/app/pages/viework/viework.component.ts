@@ -22,6 +22,9 @@ export class VieworkComponent implements OnInit {
 
     this.db.getWorkMetaData().subscribe((val) => {
       this.db.worksList = val;
+      this.db.worksList.sort(function(a, b) {
+        return parseFloat(a.workNum) - parseFloat(b.workNum);
+    });
       this.route.queryParams.subscribe(params => {
         this.currentWorkIndex = +params['fromHome'];
       });

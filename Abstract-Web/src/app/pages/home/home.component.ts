@@ -14,6 +14,7 @@ import { CookieService } from 'ngx-cookie-service';
 export class HomeComponent implements OnInit {
 
 type;
+flag=0;
 
   constructor(public router: Router, public db: DatabaseService,private cookieService: CookieService) 
   { }
@@ -25,6 +26,7 @@ type;
       this.db.worksList.sort(function(a, b) {
         return parseFloat(a.workNum) - parseFloat(b.workNum);
     });
+    this.flag=1;
     })
 }
 
