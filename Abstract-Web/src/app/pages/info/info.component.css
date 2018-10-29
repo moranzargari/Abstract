@@ -2,11 +2,17 @@
     direction: rtl;
 }
 
+.test{
+    width: 83%;
+    float: right;
+}
 .container-fluid{
-    width: 80%;
+    width: 83%;
 }
 
-img{
-    width: 600px;
-    height: 200px;
-}
+ul {
+    list-style-type: none;
+  }
+  h5{
+      text-align: right;
+  }
