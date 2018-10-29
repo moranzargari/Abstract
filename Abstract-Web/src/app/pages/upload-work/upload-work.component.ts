@@ -36,12 +36,23 @@ export class UploadWorkComponent implements OnInit {
     {
       this.router.navigate(['works']);
     }
-
     this.work = new Work();
+    this.db.getWorkMetaData().subscribe((val) => {
+      this.db.worksList = val;
+      this.db.worksList.sort(function(a, b) {
+        return parseFloat(a.workNum) - parseFloat(b.workNum);
+    });
+
+    if (this.db.worksList == undefined || this.db.worksList.length==undefined )
+    this.work.workNum = 1;
+  else
+    this.work.workNum =  this.db.worksList[this.db.worksList.length-1].workNum+10;
+
+    })
   }
 
   public addWork(){
-        this.db.addWorkToDB(this.work)
+    this.db.addWorkToDB(this.work)
     this.file_work_selected = false;
     alert("הועלה בהצלחה")
     this.router.navigate(['mainMaster']);

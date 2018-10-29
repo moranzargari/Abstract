@@ -6,6 +6,7 @@ export class Work {
         public content?: string,
         public subtitle?: string,
         public pdf?: FileUpload,
-         public images: FileUpload[] = []
+         public images: FileUpload[] = [],
+         public workNum?: Number
     ){ }
 }

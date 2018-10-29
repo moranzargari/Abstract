@@ -13,12 +13,18 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class HomeComponent implements OnInit {
 
+type;
+
   constructor(public router: Router, public db: DatabaseService,private cookieService: CookieService) 
   { }
 
   ngOnInit() {
+    this.type = this.cookieService.get('UserType');
     this.db.getWorkMetaData().subscribe((val) => {
       this.db.worksList = val;
+      this.db.worksList.sort(function(a, b) {
+        return parseFloat(a.workNum) - parseFloat(b.workNum);
+    });
     })
 }
 

@@ -10,6 +10,7 @@
                   <div class="content-details fadeIn-bottom">
                     <h3 class="content-title">{{work.title}}</h3>
                     <p *ngIf="work.subtitle!=undefined">{{work.subtitle}}</p>
+                    <p class="numbers" *ngIf="this.type!=undefined && this.type=='mastery'">{{work.workNum}}</p>
                   </div>
         </div>
   </div> 
