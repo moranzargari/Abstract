@@ -40,7 +40,6 @@ export class ContactUsComponent implements OnInit {
     this.newMsg.message = formRequest.message;
     this.newMsg.email = formRequest.email;
     this.newMsg.date =  this.today;
-      console.log(this.newMsg);
     this.db.addMsgToDB(this.newMsg);
     this.form.reset();
   }
