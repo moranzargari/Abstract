@@ -3,10 +3,10 @@ import { AngularFirestore, AngularFirestoreDocument ,AngularFirestoreCollection}
 import * as firebase from 'firebase/app';
 import {Work} from '../work';
 import {Msg} from 'src/app/msg';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs'
 import 'firebase/database';
 import 'rxjs/add/operator/map';
-
+import { map } from "rxjs/operators";
 @Injectable({
   providedIn: 'root'
 })
