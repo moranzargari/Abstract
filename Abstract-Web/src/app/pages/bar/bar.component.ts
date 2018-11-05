@@ -36,4 +36,8 @@ public logOut() {
   this.auth.LogOut();
   window.location.reload();
 }
+
+public main(){
+  this.router.navigate(['mainMaster']);
+}
 }

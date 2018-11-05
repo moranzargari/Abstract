@@ -24,6 +24,7 @@
 <li><a  [routerLink]="" (click)="contactUs()"><i aria-hidden="true"></i> צור קשר</a></li>
 <li><a [routerLink]="" (click)="info()"><i aria-hidden="true"></i> אודות</a></li>
 <li><a [routerLink]="" (click)="works()"><i aria-hidden="true"></i> עבודות</a></li>
+<li *ngIf="this.type=='mastery'"><a [routerLink]="" (click)="this.main()"><i aria-hidden="true"></i> דף מנהל</a></li>
 </ul>
 </div>
 
