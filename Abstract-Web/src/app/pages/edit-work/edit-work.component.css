@@ -1,16 +1,39 @@
+
+.buttons{
+    direction: rtl;
+}
+.buttons2{
+    width: 30%;
+    direction: rtl;
+}
+.buttons3{
+    direction: rtl;
+    margin-right: 30%;
+    margin-left: 30%;
+    width: 30%;
+}
+
+legend,textarea,input{
+    direction: rtl;
+}
+.buttons3 button{
+    padding-bottom: 10px;
+    text-align: center
+} 
+label{
+    direction: rtl;
+    margin-right:80px;
+}
+
+.inputGroupContainer{
+    margin-left:320px;
+}
+
 .selectedit{
     background-color: rgb(197, 193, 201);
     width: 100%;
-
+    direction: rtl;
     text-align: center;
-}
-
-.addfinal{
-    width: 40%;
-    margin-left: 30%;
-    margin-right: 30%;
-    text-align: center;
-    background-color: darkgreen;
 }
 
 .addedit{
@@ -18,20 +41,21 @@
 }
 
 .addmore{
-    background-color: royalblue;
-    margin-top: 4%;
+    direction: rtl;
     margin-right: 30%;
     margin-left: 30%;
     width: 30%;
-}
-.pdf{
-    background-color: tomato;
+    background-color: rgb(95, 100, 100);
+    color: white;
 }
 
-.pics{
-    margin-left: 20%;
-
-  
+.pdfdiv{
+    direction: rtl;
+}
+.image-preview{
+    direction: rtl;
+    float: right;
+    width: 100%
 }
 
 .pics img{
@@ -42,7 +66,10 @@
     /* height: 20%; */
 }
 .pics{
-    width: 90%;
+    width: 100%;
+}
+.images{
+    margin-left: 85%;
 }
 
 .btn{
@@ -56,4 +83,10 @@
     cursor: pointer; /* Pointer/hand icon */
     text-align: center;
     display: block; /* Make the buttons appear below each other */
+
+}
+.btn-group{
+    margin-left: 1030px;
+    float: left;
+    width: 15%;
 }
