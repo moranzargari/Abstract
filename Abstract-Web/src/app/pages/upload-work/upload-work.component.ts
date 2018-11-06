@@ -89,7 +89,7 @@ export class UploadWorkComponent implements OnInit {
     if(num==0){
       this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
         this.file_work_selected = false;
-        this.work.images.push(this.currentFileUpload); // assigned file in project field
+        this.work.images.push(this.currentFileUpload);
         });
     }
     else{
