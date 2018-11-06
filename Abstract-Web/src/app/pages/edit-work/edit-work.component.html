@@ -43,12 +43,12 @@
         <legend>ערוך תמונות</legend>
         <div class= "pics col-md-8" *ngFor="let images of this.work.images; let i=index">
         <div class="btn-group" role="group" aria-label="Basic example">
-                <button (click)="deletimg(i)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
+               
                 <button *ngIf = "i>0" (click)="swapup(i)" type="button" class="btn btn-info" ><i class="fa fa-arrow-up"></i></button>
                 <button *ngIf = "i<this.work.images.length-1"(click)="swapdown(i)" type="button" class="btn btn-info"><i class="fa fa-arrow-down"></i></button>
+                <button (click)="deletimg(i)" type="button" class="btn btn-danger"><i class="fa fa-times"></i></button>
             </div>
             <div class="images">
-                <p></p>
                 <img src='{{images.url}}'>
                 <br>
             </div>

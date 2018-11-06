@@ -66,7 +66,7 @@ label{
     /* height: 20%; */
 }
 .pics{
-    width: 100%;
+    width: 95%;
 }
 .images{
     margin-left: 85%;
@@ -82,11 +82,11 @@ label{
     padding: 10px 24px; /* Some padding */
     cursor: pointer; /* Pointer/hand icon */
     text-align: center;
-    display: block; /* Make the buttons appear below each other */
-
+    display: inherit; /* Make the buttons appear below each other */
+    float: right;
 }
 .btn-group{
-    margin-left: 1030px;
-    float: left;
+    margin-right: 16%;
+    float: right;
     width: 15%;
 }
