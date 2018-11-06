@@ -1,4 +1,5 @@
 # Abstract
+![alt text](https://image.ibb.co/fZwpkA/abstract-new1.jpg)
 website for graphic studio
 
 ## The site is still under construction...
