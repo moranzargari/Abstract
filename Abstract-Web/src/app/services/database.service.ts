@@ -14,17 +14,17 @@ export class DatabaseService {
 
    /* work*/
  public workCollections: AngularFirestoreCollection<Work>; // holds a connection the firebase WorksInfo table
- public work: Work; // Holds project info that were inserted in the form by the user
+ public work: Work; // Holds work info that were inserted in the form by the user
  listingWorkDoc: AngularFirestoreDocument<any>; //holds FB listing for update operation
- observableWorks: Observable<Work[]>; //A temp variable that returns metadata. used by projectsList
- worksList = []; // holds a list with listing id's and projects info of the ProjectInfo table
+ observableWorks: Observable<Work[]>; //A temp variable that returns metadata. used by worksList
+ worksList = []; // holds a list with listing id's and worls info of the WorkInfo table
  listingDoc: AngularFirestoreDocument<Work>; //holds FB listing for update operation
 
   /* Msg*/
   public MsgCollections: AngularFirestoreCollection<Work>;
   public msg: Msg;
-  observableMsgs: Observable<Msg[]>; //A temp variable that returns metadata. used by projectsList
-  MsgsList = []; // holds a list with listing id's and projects info of the ProjectInfo table
+  observableMsgs: Observable<Msg[]>; //A temp variable that returns metadata. used by worksList
+  MsgsList = []; // holds a list with listing id's and works info of the WorksInfo table
 
 
 
@@ -33,7 +33,7 @@ export class DatabaseService {
     this.MsgCollections = afs.collection<any>('messages');
    }
 
-  //adds all info that was provided through the project-upload form to project object and ads it to the firebase DB
+  //adds all info that was provided through the work-upload form to work object and ads it to the firebase DB
   public addWorkToDB(work: Work) {
     this.workCollections.add(JSON.parse(JSON.stringify(work)));
   }
@@ -52,8 +52,7 @@ export class DatabaseService {
     }
 
     
-    getWorkMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
-      //this.workCollections = Array.prototype.slice.call(this.workCollections);
+    getWorkMetaData() { //Returns the DB table meta data from firebase including all table fields
       this.observableWorks = this.workCollections.snapshotChanges().map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Work;
@@ -65,7 +64,7 @@ export class DatabaseService {
     }
 
 
-    getMsgMetaData() { //Returns the DB table meta data from firebase including all table fields id and users
+    getMsgMetaData() { //Returns the DB table meta data from firebase including all table fields
       this.observableMsgs = this.MsgCollections.snapshotChanges().map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Msg;
@@ -86,16 +85,6 @@ export class DatabaseService {
       }
     }
   }
-
-  //   // returns the id listing of project by a given project name
-  //   public getWorkID(pname: string) { //get project ID by Project name
-  //     for (var i = 0; i < this.worksList.length; i++) {
-  //       if (this.worksList[i].title == pname) {
-  //         return this.worksList[i].id;
-  //       }
-  //     }
-  //     return 'not found';
-  //   }
 
 }
 

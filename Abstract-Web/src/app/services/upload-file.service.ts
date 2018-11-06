@@ -29,7 +29,6 @@ export class UploadFileService {
       },
       () => {
         // success, finished upload , now the save the file
-        // fileUpload.url = uploadTask.snapshot.downloadURL;
         fileUpload.name = fileUpload.file.name;
         uploadTask.then((snapshot) => {
           snapshot.ref.getDownloadURL().then((url) => {

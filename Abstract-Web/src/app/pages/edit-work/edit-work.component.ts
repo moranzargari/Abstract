@@ -141,7 +141,7 @@ export class EditWorkComponent implements OnInit {
         if(num==0){
           this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress).then(() => {
             this.file_work_selected = false;
-            this.work.images.push(this.currentFileUpload); // assigned file in project field
+            this.work.images.push(this.currentFileUpload);
             });
         }
         else{
@@ -162,6 +162,7 @@ export class EditWorkComponent implements OnInit {
       if (window.confirm('האם אתה בטוח שברצונך למחוק עבודה זו לצמיתות?')){
         this.db.deleteWorkListing(this.work.title)
         alert("העבודה נמחקה בהצלחה");
+        this.router.navigate(['home']);
         this.router.navigate(['mainMaster']);
       }
     }
