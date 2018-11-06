@@ -36,6 +36,7 @@ export class MasteryComponent implements OnInit {
       .then((res) => {
         this.cookieService.set('UserType', 'mastery');
             this.router.navigate(['mainMaster'])
+            window.location.reload();
       })
       .catch((err) => {
         this.signInVal = 'כניסה'
